@@ -1,20 +1,32 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react';
+import CreateTrip from './pages/CreateTrip';
+import TripDetail from './pages/TripDetail';
 
-function App() {
-  const [msg, setMsg] = useState('')
+const App = () => {
+  // 從 localStorage 讀取上次未完成的旅程
+  const [trip, setTrip] = useState(() => {
+    const saved = localStorage.getItem('current_trip');
+    return saved ? JSON.parse(saved) : null;
+  });
 
+  // 當 trip 改變時，存入 localStorage
   useEffect(() => {
-    axios.get('http://localhost:5000/api/hello')
-      .then(res => setMsg(res.data.message))
-      .catch(err => console.log(err))
-  }, [])
+    if (trip) {
+      localStorage.setItem('current_trip', JSON.stringify(trip));
+    } else {
+      localStorage.removeItem('current_trip');
+    }
+  }, [trip]);
 
-  return (
-    <div>
-      <h1>React + Node.js</h1>
-      <p>來自後端的訊息: {msg}</p>
-    </div>
-  )
-}
-export default App
+  const handleClearTrip = () => {
+    if (window.confirm('確定要結束並清除目前的旅程嗎？')) {
+      setTrip(null);
+    }
+  };
+
+  return trip
+    ? <TripDetail trip={trip} onClearTrip={handleClearTrip} />
+    : <CreateTrip onStart={setTrip} />;
+};
+
+export default App;

@@ -1,0 +1,60 @@
+import { Hotel, Utensils, MapPin, ShoppingBag, Train, Plane, Camera } from 'lucide-react';
+
+export const TYPE_CONFIG = {
+  spot: {
+    label: '景點',
+    dot: 'bg-gradient-to-br from-blue-400 to-indigo-600',
+    badge: 'bg-blue-50 text-blue-600 border border-blue-100',
+    icon: <MapPin className="w-3.5 h-3.5" />,
+    cardBorder: 'hover:border-blue-200',
+    cardAccent: 'bg-blue-500',
+  },
+  restaurant: {
+    label: '餐廳',
+    dot: 'bg-gradient-to-br from-orange-400 to-rose-500',
+    badge: 'bg-orange-50 text-orange-600 border border-orange-100',
+    icon: <Utensils className="w-3.5 h-3.5" />,
+    cardBorder: 'hover:border-orange-200',
+    cardAccent: 'bg-orange-500',
+  },
+  hotel: {
+    label: '住宿',
+    dot: 'bg-gradient-to-br from-purple-400 to-purple-600',
+    badge: 'bg-purple-50 text-purple-600 border border-purple-100',
+    icon: <Hotel className="w-3.5 h-3.5" />,
+    cardBorder: 'hover:border-purple-200',
+    cardAccent: 'bg-purple-500',
+  },
+  transport: {
+    label: '交通',
+    dot: 'bg-gradient-to-br from-teal-400 to-emerald-500',
+    badge: 'bg-teal-50 text-teal-600 border border-teal-100',
+    icon: <Train className="w-3.5 h-3.5" />,
+    cardBorder: 'hover:border-teal-200',
+    cardAccent: 'bg-teal-500',
+  },
+  flight: {
+    label: '航班',
+    dot: 'bg-gradient-to-br from-sky-400 to-blue-500',
+    badge: 'bg-sky-50 text-sky-600 border border-sky-100',
+    icon: <Plane className="w-3.5 h-3.5" />,
+    cardBorder: 'hover:border-sky-200',
+    cardAccent: 'bg-sky-500',
+  },
+  shopping: {
+    label: '購物',
+    dot: 'bg-gradient-to-br from-pink-400 to-rose-500',
+    badge: 'bg-pink-50 text-pink-600 border border-pink-100',
+    icon: <ShoppingBag className="w-3.5 h-3.5" />,
+    cardBorder: 'hover:border-pink-200',
+    cardAccent: 'bg-pink-500',
+  },
+  activity: {
+    label: '活動',
+    dot: 'bg-gradient-to-br from-amber-400 to-orange-500',
+    badge: 'bg-amber-50 text-amber-600 border border-amber-100',
+    icon: <Camera className="w-3.5 h-3.5" />,
+    cardBorder: 'hover:border-amber-200',
+    cardAccent: 'bg-amber-500',
+  },
+};
